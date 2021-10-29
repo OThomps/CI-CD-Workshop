@@ -4,7 +4,6 @@ on:
     branches:
       - dev
       - qa
-      - staging
       - main
 
 jobs:  
@@ -19,17 +18,17 @@ jobs:
         uses: zentered/vercel-preview-url@v1.0.0
         id: vercel_preview_url
         env:
-          VERCEL_TOKEN: ${{ secrets.A2mirpd4rVnzUjbM0oKh93gJ }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         with:
-          vercel_team_id: ${{ secrets.team_p2j3WSX346HW6UFFVy76bAmq }}
-          vercel_project_id: ${{ secrets.prj_tmS9UAZW4nYSbh0J7Jyh9pazu6kV }}
+          vercel_team_id: ${{ secrets.VERCEL_TEAM_ID }}
+          vercel_project_id: ${{ secrets.VERCEL_PROJECT_ID }}
       - name: Get Application URL
         run: echo "https://${{ steps.vercel_preview_url.outputs.preview_url }}"
       - name: Wait Until Application Deployed
         uses: UnlyEd/github-action-await-vercel@v1.1.0
         id: await-vercel
         env:
-          VERCEL_TOKEN: ${{ secrets.A2mirpd4rVnzUjbM0oKh93gJ }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         with:
           deployment-url: ${{ steps.vercel_preview_url.outputs.preview_url }}
           timeout: 10
