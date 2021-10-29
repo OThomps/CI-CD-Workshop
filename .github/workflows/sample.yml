@@ -43,7 +43,7 @@ jobs:
       - name: Check out Test Automation code
         uses: actions/checkout@v2
         with:
-          repository: 'oThomps/CI-CD-Workshop'
+          repository: 'ofindley/sample-ci-webdriverio-test'
           ref: 'main'
       - name: Install Test dependencies
         uses: docker://buildkite/puppeteer:latest
